@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace MCD_MSSQL_CRUD_Islemleri
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        static string baglanti = "Server = JACKUP; Database = NORTHWND; Trusted_Connection = True;";
+        SqlConnection conn = new SqlConnection(baglanti);
+        SqlCommand cmd;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
