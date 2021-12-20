@@ -37,10 +37,11 @@ namespace MCD_MSSQL_CRUD_Islemleri
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBoolId = new System.Windows.Forms.TextBox();
+            this.txtAd = new System.Windows.Forms.TextBox();
+            this.txtStok = new System.Windows.Forms.TextBox();
+            this.txtFiyat = new System.Windows.Forms.TextBox();
+            this.btnIDGore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@ namespace MCD_MSSQL_CRUD_Islemleri
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1163, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(1396, 490);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnEkle
@@ -62,6 +63,7 @@ namespace MCD_MSSQL_CRUD_Islemleri
             this.btnEkle.TabIndex = 1;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnGuncelle
             // 
@@ -89,11 +91,12 @@ namespace MCD_MSSQL_CRUD_Islemleri
             this.btnUrunGetir.TabIndex = 1;
             this.btnUrunGetir.Text = "Ürün Getir";
             this.btnUrunGetir.UseVisualStyleBackColor = true;
+            this.btnUrunGetir.Click += new System.EventHandler(this.btnUrunGetir_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(928, 565);
+            this.label1.Location = new System.Drawing.Point(1163, 565);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 17);
             this.label1.TabIndex = 2;
@@ -102,7 +105,7 @@ namespace MCD_MSSQL_CRUD_Islemleri
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(928, 626);
+            this.label2.Location = new System.Drawing.Point(1163, 626);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 17);
             this.label2.TabIndex = 2;
@@ -111,49 +114,60 @@ namespace MCD_MSSQL_CRUD_Islemleri
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(928, 701);
+            this.label3.Location = new System.Drawing.Point(1163, 701);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Fiyat :";
             // 
-            // textBox1
+            // txtBoolId
             // 
-            this.textBox1.Location = new System.Drawing.Point(732, 576);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtBoolId.Location = new System.Drawing.Point(732, 576);
+            this.txtBoolId.Name = "txtBoolId";
+            this.txtBoolId.Size = new System.Drawing.Size(145, 22);
+            this.txtBoolId.TabIndex = 3;
             // 
-            // textBox2
+            // txtAd
             // 
-            this.textBox2.Location = new System.Drawing.Point(1028, 562);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtAd.Location = new System.Drawing.Point(1263, 562);
+            this.txtAd.Name = "txtAd";
+            this.txtAd.Size = new System.Drawing.Size(155, 22);
+            this.txtAd.TabIndex = 3;
             // 
-            // textBox3
+            // txtStok
             // 
-            this.textBox3.Location = new System.Drawing.Point(1028, 623);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 22);
-            this.textBox3.TabIndex = 3;
+            this.txtStok.Location = new System.Drawing.Point(1263, 623);
+            this.txtStok.Name = "txtStok";
+            this.txtStok.Size = new System.Drawing.Size(155, 22);
+            this.txtStok.TabIndex = 3;
             // 
-            // textBox4
+            // txtFiyat
             // 
-            this.textBox4.Location = new System.Drawing.Point(1028, 698);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 22);
-            this.textBox4.TabIndex = 3;
+            this.txtFiyat.Location = new System.Drawing.Point(1263, 698);
+            this.txtFiyat.Name = "txtFiyat";
+            this.txtFiyat.Size = new System.Drawing.Size(155, 22);
+            this.txtFiyat.TabIndex = 3;
+            // 
+            // btnIDGore
+            // 
+            this.btnIDGore.Location = new System.Drawing.Point(915, 565);
+            this.btnIDGore.Name = "btnIDGore";
+            this.btnIDGore.Size = new System.Drawing.Size(199, 44);
+            this.btnIDGore.TabIndex = 4;
+            this.btnIDGore.Text = "ID\'ye Göre Ürün Getir ";
+            this.btnIDGore.UseVisualStyleBackColor = true;
+            this.btnIDGore.Click += new System.EventHandler(this.btnIDGore_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1776, 755);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnIDGore);
+            this.Controls.Add(this.txtFiyat);
+            this.Controls.Add(this.txtStok);
+            this.Controls.Add(this.txtAd);
+            this.Controls.Add(this.txtBoolId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -181,10 +195,11 @@ namespace MCD_MSSQL_CRUD_Islemleri
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBoolId;
+        private System.Windows.Forms.TextBox txtAd;
+        private System.Windows.Forms.TextBox txtStok;
+        private System.Windows.Forms.TextBox txtFiyat;
+        private System.Windows.Forms.Button btnIDGore;
     }
 }
 
